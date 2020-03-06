@@ -1,0 +1,70 @@
+Name:Devarsh Shah
+Unity ID:200310992
+
+1)What are the advantages and disadvantages of each of the two scheduling policies? Also, give the advantages and disadvantages of the round robin scheduling policy originally implemented in Xinu.
+Ans:
+
+i)Random Scheduling:
+Advantages:
+1)Low priority processes also have chance like high priority process because of randomization.
+
+Disadvantages:
+1)Processes are scheduled randomly, so higher priority processes won't have better chance of running.
+
+
+ii)Linux Scheduling:
+Advantages:
+1)If the whole quantum of a process is not utilized, then it gets more priority(i.e higher goodness value) to run in the next epoch.
+2)The process will get a chance to run at some time in the epoch and it won't cause the starvation of the process.
+3)It ensures fairness among processes. The I/O bound processes because of its more waiting time also gets a fair chance who have not used up their counter value.
+
+Disadvantages:
+1)There might be more overhead because of more context switches as compared to other schedulers.
+2)The implementation is more complex compared to others
+
+iii)Round-robin Scheduling(Xinu):
+Advantages:
+1)Higher priority processes will always have a more chance to run.
+2)Faster scheduling algorithm compared to others.
+
+Disadvantages:
+1)Starvation can happen.
+2)Fairness is not ensured in the scheduling, as there is no preemption.
+
+
+2)Describe when each of the schedulers run the NULL process.
+Ans:
+Random Scheduler:
+The null process runs only when there are no other processes in the ready queue.
+
+Linux Scheduler:
+The null process runs only when there are no other processes in the ready queue
+
+Round-robin scheduler:
+
+The null process runs only when there are no other processes in the ready queue
+
+
+
+3)Assume that there are three processes P1, P2, P3 that will run forever without blocking. We want to allocate the following CPU times to each of them: 20% to P1, 30% to P2, and 50% to P3. Which priorities do we need to set to P1, P2, and P3 to accomplish this if we want to use the Random scheduler? Assume that those processes are the only ones running in the machine. Could you give a generalization of your result to n processes? Explain.
+Ans:
+
+The maximum possible priority can be considered to be x indicating the range of priorities to be in range of 0 to x.
+Xinu processes have priorities in the range of 0 to 99 max.
+The generalized formula can be given by
+
+Assumption:The sum of the priorities of n processes is assigned to be equal to 100.
+
+
+Sum of the priorities of n processes=x+1
+Priority of process=((% of CPU time)*(x+1))/100
+
+
+Suppose if there are three processes P1,P2 and P3 whose sum is 100, then their priority can be given by from the above formula.
+The sum of the priorities is 100.
+P1:20(20% CPU time)
+P2:30(30% CPU time)
+P3:50(50% CPU time)
+
+So, basically we have divided the processes based on their probabilities considering the random scheduler in mind.
+
