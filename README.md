@@ -1,3 +1,4 @@
+OS Xinu Programming Assignment
 # PA1
 1. Objective
 The objectives of this lab are to get familiar with the concepts of process management like process priorities, scheduling and context switching.
